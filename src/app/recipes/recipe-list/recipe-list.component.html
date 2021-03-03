@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-xs-12">
+    <button
+      class="btn btn-success"
+      (click)="onNewRecipe()"
+      style="margin-right: 3px"
+    >
+      New Recipe
+    </button>
+    <button class="btn btn-info" (click)="onLoadDataFromServer()">
+      Load Data from Server
+    </button>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-xs-12">
+    <div *ngIf="isLoadingData" style="text-align: center">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+    <app-recipe-item
+      *ngFor="let recipeEl of recipes; let i = index"
+      [recipe]="recipeEl"
+      [id]="i"
+    ></app-recipe-item>
+  </div>
+</div>
